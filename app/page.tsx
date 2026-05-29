@@ -220,7 +220,7 @@ export default function Home() {
         <a href="#hero" className="brand">
           <div className="brand-mark">E</div>
           <div>
-            Élyse R.
+            Elysé R.
             <small>Dev · Web &amp; Mobile</small>
           </div>
         </a>
@@ -1246,7 +1246,7 @@ export default function Home() {
               <a href="#hero" className="brand">
                 <div className="brand-mark">E</div>
                 <div>
-                  Élyse R.
+                  Elysé R.
                   <small>Dev · Web &amp; Mobile</small>
                 </div>
               </a>
