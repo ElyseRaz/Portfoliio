@@ -769,7 +769,7 @@ export default function Home() {
                   Interface interactive pour générer, tester et exporter des combinaisons harmonieuses.
                 </p>
                 <div className="project-techs">
-                  {['React','TypeScript','Vercel'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                  {['Next JS','TypeScript','Vercel'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
               </div>
             </article>
@@ -799,7 +799,7 @@ export default function Home() {
                   Statistiques en temps réel, classements et modes de jeu variés.
                 </p>
                 <div className="project-techs">
-                  {['Node.js','Express','Railway','JavaScript'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                  {['Next JS', 'PostgreSQL','Railway','TypeScript'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
               </div>
             </article>
@@ -863,7 +863,7 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <div className="project-title">Akrifi App</div>
-                <p className="project-desc">Application mobile personnelle en cours de développement. Lien GitHub disponible prochainement.</p>
+                <p className="project-desc">Application mobile pour voir les partitions de musique et de système de notifications pour les membres</p>
                 <div className="project-techs">
                   {['Flutter','Dart','PostgreSQL', 'SQLite'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
@@ -929,9 +929,9 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <div className="project-title">MediFlow</div>
-                <p className="project-desc">Application de gestion de flux médicaux. Suivi patients, rendez-vous et ordonnances. Projet académique ENI.</p>
+                <p className="project-desc">Application de Gestion de Stock de Médicaments d'une Pharmacie. Projet académique ENI.</p>
                 <div className="project-techs">
-                  {['React','Node.js','MySQL'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                  {['Next JS','PostgreSQL','TypeScript'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
               </div>
             </article>
@@ -952,9 +952,9 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <div className="project-title">Gestion Questionnaire</div>
-                <p className="project-desc">Système de création et gestion de questionnaires en ligne. Création de formulaires, collecte et analyse des réponses.</p>
+                <p className="project-desc">Système de Question à Choix Multiple pour faire des examens en ligne</p>
                 <div className="project-techs">
-                  {['PHP','MySQL','JavaScript'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                  {['HTML','CSS','Java','PostgreSQL'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
               </div>
             </article>
