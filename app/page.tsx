@@ -1076,8 +1076,7 @@ export default function Home() {
               On <em>en parle ?</em>
             </h2>
             <p className="section-sub">
-              Une idée, un produit à lancer, un audit à mener ? Je réponds sous 24h ouvrées. Et oui,
-              je peux signer un NDA.
+              Une idée, un produit à lancer, un audit à mener ? Je réponds sous 24h ouvrées.
             </p>
           </div>
 
@@ -1119,13 +1118,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="availability">
-                <span className="dot"></span>
-                <div>
-                  <strong>Disponible pour de nouveaux projets · Avril 2026</strong>
-                  <small>1 à 2 slots ouverts ce trimestre</small>
-                </div>
-              </div>
+              
             </div>
 
             <form className="contact-form reveal" data-delay="1" onSubmit={handleContact}>
