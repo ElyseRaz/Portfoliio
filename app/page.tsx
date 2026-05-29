@@ -190,6 +190,13 @@ export default function Home() {
   const filteredItems =
     activeTab === 'all' ? timelineItems : timelineItems.filter((item) => item.cat === activeTab);
 
+  useEffect(() => {
+    document.querySelectorAll('.tl-item.reveal').forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('in');
+    });
+  }, [activeTab]);
+
   const tabLabels: Record<string, string> = {
     all: 'Tout',
     work: 'Stage',
