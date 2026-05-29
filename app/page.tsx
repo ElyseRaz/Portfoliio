@@ -308,7 +308,7 @@ export default function Home() {
 
             <div className="hero-role">Développeur Web &amp; Mobile · Junior</div>
 
-            <div className="hero-slogan">« Créer des interfaces qui ont du sens. »</div>
+            <div className="hero-slogan">« Création et Innovation dans le Monde Numérique. »</div>
 
             <p className="hero-subtext">
               Étudiant en troisième année à l&apos;École Nationale d&apos;Informatique. J&apos;apprends,
@@ -1236,7 +1236,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-quote reveal">
             <h2>
-              Les meilleurs sites n'ont pas été écrits en un jour. Continuons.
+              Les meilleurs sites n'ont pas été écrits en un jour. Continuons à construire.
             </h2>
             <p>— Manifeste personnel</p>
           </div>
