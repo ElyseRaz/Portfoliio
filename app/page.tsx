@@ -1236,8 +1236,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-quote reveal">
             <h2>
-              &ldquo;Les meilleures interfaces sont celles qui se font oublier — pour laisser la place à
-              l&apos;utilisateur.&rdquo;
+              Les meilleurs sites n'ont pas été écrits en un jour. Continuons.
             </h2>
             <p>— Manifeste personnel</p>
           </div>
