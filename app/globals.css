@@ -251,7 +251,7 @@ body::after {
   font-family: var(--font-display);
   font-size: clamp(40px, 6vw, 88px);
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1.1;
   letter-spacing: -0.035em;
   margin-bottom: 18px;
 }
@@ -261,6 +261,8 @@ body::after {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
+  padding-bottom: 0.08em;
 }
 .hero h1 .word {
   display: inline-block;
@@ -486,7 +488,7 @@ section { position: relative; padding: 120px 0; }
   font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 54px);
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1.15;
   letter-spacing: -0.015em;
 }
 .section-title em {
@@ -496,6 +498,8 @@ section { position: relative; padding: 120px 0; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
+  padding-bottom: 0.08em;
 }
 .section-sub {
   font-size: 17px;
