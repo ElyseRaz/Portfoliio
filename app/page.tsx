@@ -1,12 +1,49 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+
+const PROJECTS_COUNT = 9;
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all');
   const [menuOpen, setMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [projectIndex, setProjectIndex] = useState(0);
+  const projectsViewportRef = useRef<HTMLDivElement>(null);
+
+  const scrollToProject = (i: number) => {
+    const viewport = projectsViewportRef.current;
+    if (!viewport) return;
+    const slide = viewport.children[i] as HTMLElement | undefined;
+    slide?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  };
+
+  const closestProjectIndex = (viewport: HTMLDivElement) => {
+    const slides = Array.from(viewport.children) as HTMLElement[];
+    const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+    if (viewport.scrollLeft <= 1) return 0;
+    if (viewport.scrollLeft >= maxScroll - 1) return slides.length - 1;
+
+    const center = viewport.scrollLeft + viewport.clientWidth / 2;
+    let closest = 0;
+    let closestDist = Infinity;
+    slides.forEach((s, i) => {
+      const dist = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = i;
+      }
+    });
+    return closest;
+  };
+
+  const goToRelativeProject = (delta: number) => {
+    const viewport = projectsViewportRef.current;
+    if (!viewport) return;
+    const current = closestProjectIndex(viewport);
+    scrollToProject(Math.min(PROJECTS_COUNT - 1, Math.max(0, current + delta)));
+  };
 
   const handleContact = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -205,6 +242,23 @@ export default function Home() {
     document.querySelectorAll('.tl-item.reveal:not(.in)').forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, [activeTab]);
+
+  useEffect(() => {
+    const viewport = projectsViewportRef.current;
+    if (!viewport) return;
+
+    let raf = 0;
+    const handleScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setProjectIndex(closestProjectIndex(viewport)));
+    };
+    viewport.addEventListener('scroll', handleScroll, { passive: true });
+    setProjectIndex(closestProjectIndex(viewport));
+    return () => {
+      viewport.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const tabLabels: Record<string, string> = {
     all: 'Tout',
@@ -753,10 +807,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="projects-grid">
+          <div className="projects-carousel">
+          <div className="carousel-viewport" ref={projectsViewportRef}>
 
             {/* Color Arcs */}
-            <article className="project feature reveal">
+            <article className="project feature reveal carousel-slide">
               <div className="project-cover">
                 <span className="project-tag">Projet Perso</span>
                 <div className="project-actions">
@@ -784,7 +839,7 @@ export default function Home() {
             </article>
 
             {/* Cartyping */}
-            <article className="project feature reveal" data-delay="1">
+            <article className="project feature reveal carousel-slide" data-delay="1">
               <div className="project-cover">
                 <span className="project-tag">Projet Perso</span>
                 <div className="project-actions">
@@ -814,7 +869,7 @@ export default function Home() {
             </article>
 
             {/* Mon Portfolio */}
-            <article className="project reveal" data-delay="2">
+            <article className="project reveal carousel-slide" data-delay="2">
               <div className="project-cover">
                 <span className="project-tag">Portfolio</span>
                 <div className="project-actions">
@@ -837,7 +892,7 @@ export default function Home() {
             </article>
 
             {/* Vérité ou Défi */}
-            <article className="project reveal" data-delay="3">
+            <article className="project reveal carousel-slide" data-delay="3">
               <div className="project-cover">
                 <span className="project-tag">Mobile · Perso</span>
                 <div className="project-actions">
@@ -859,7 +914,7 @@ export default function Home() {
             </article>
 
             {/* Akrifi App */}
-            <article className="project reveal" data-delay="4">
+            <article className="project reveal carousel-slide" data-delay="4">
               <div className="project-cover">
                 <span className="project-tag">Mobile · Perso</span>
                 <div className="project-actions">
@@ -880,7 +935,7 @@ export default function Home() {
             </article>
 
             {/* Agrohelp Consulting */}
-            <article className="project reveal" data-delay="5">
+            <article className="project reveal carousel-slide" data-delay="5">
               <div className="project-cover">
                 <span className="project-tag">Stage · Web</span>
                 <div className="project-actions">
@@ -913,7 +968,7 @@ export default function Home() {
             </article>
 
             {/* MediFlow */}
-            <article className="project reveal" data-delay="3">
+            <article className="project reveal carousel-slide" data-delay="3">
               <div className="project-cover">
                 <span className="project-tag">Académique</span>
                 <div className="project-actions">
@@ -946,7 +1001,7 @@ export default function Home() {
             </article>
 
             {/* Gestion-questionnaire */}
-            <article className="project reveal" data-delay="4">
+            <article className="project reveal carousel-slide" data-delay="4">
               <div className="project-cover">
                 <span className="project-tag">Académique</span>
                 <div className="project-actions">
@@ -968,6 +1023,65 @@ export default function Home() {
               </div>
             </article>
 
+            {/*MindTouch*/}
+            <article className="project reveal carousel-slide" data-delay="4">
+              <div className="project-cover">
+                <span className="project-tag">Académique</span>
+                <div className="project-actions">
+                  <a className="icon-btn" href="https://github.com/ElyseRaz/MindTouch" target="_blank" rel="noopener noreferrer" title="GitHub"><GithubIcon /></a>
+                </div>
+                <div className="preview pv pv-shop">
+                  <div className="pv-shop-grid">
+                    {[0,1,2,3,4,5].map(i => <div key={i} className="pv-prod"></div>)}
+                  </div>
+                </div>
+                <ProjectImage src="/Mindmap.jpg" alt="MindTouch" />
+              </div>
+              <div className="project-body">
+                <div className="project-title">MindTouch</div>
+                <p className="project-desc">Outil de création de cartes heuristiques pour organiser les idées et les concepts</p>
+                <div className="project-techs">
+                  {['Flutter','Dart','Go','PostgreSQL'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div className="carousel-controls">
+            <button
+              className="carousel-arrow prev"
+              onClick={() => goToRelativeProject(-1)}
+              disabled={projectIndex === 0}
+              aria-label="Projet précédent"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            <div className="carousel-dots">
+              {Array.from({ length: PROJECTS_COUNT }).map((_, i) => (
+                <button
+                  key={i}
+                  className={projectIndex === i ? 'active' : ''}
+                  onClick={() => scrollToProject(i)}
+                  aria-label={`Aller au projet ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              className="carousel-arrow next"
+              onClick={() => goToRelativeProject(1)}
+              disabled={projectIndex === PROJECTS_COUNT - 1}
+              aria-label="Projet suivant"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
           </div>
         </div>
       </section>
