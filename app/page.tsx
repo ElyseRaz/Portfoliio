@@ -461,7 +461,7 @@ export default function Home() {
           <div className="about-grid">
             <div className="about-copy reveal" data-delay="1">
               <p>
-                Je suis un <strong>développeur junior</strong> en pleine ascension, étudiant en
+                Je suis un <strong>développeur junior   </strong> en pleine ascension, étudiant en
                 troisième année à l&apos;<strong>École Nationale d&apos;Informatique</strong>. Le code est
                 devenu mon terrain d&apos;expression — du web au mobile, du wireframe au livrable.
               </p>
