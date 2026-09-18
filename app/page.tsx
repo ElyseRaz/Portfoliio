@@ -166,7 +166,8 @@ export default function Home() {
   const timelineItems = [
     {
       cat: 'work',
-      period: 'Stage · 2026',
+      current: true,
+      period: 'Stage · 2026 - Présent',
       badge: 'En cours',
       title: "Conception et Développement d'un Agent IA pour l'Analyse, la géneration de documentation et l'assistance aux projets GitLab dans l'application DO",
       org: 'AKATA Goavana · Fianarantsoa',
@@ -177,7 +178,7 @@ export default function Home() {
       cat: 'edu',
       current: true,
       period: '2025 — Présent',
-      // badge: 'En cours',
+      badge: 'En cours',
       title: 'Troisième Année de Licence en Génie Logiciel et Base de Données',
       org: "École Nationale d'Informatique (ENI) · Fianarantsoa",
       desc: "Troisième année de licence en cours. Approfondissement en génie logiciel, bases de données, développement web et mobile, et architectures applicatives.",
@@ -784,7 +785,7 @@ export default function Home() {
                       <polygon points="2,7 12,2 22,7 22,17 12,22 2,17" />
                     </svg>
                   </div>
-                  <div><span>Vercel · AWS</span><small>Edge · Lambda</small></div>
+                  <div><span>Vercel </span><small>Edge · Lambda</small></div>
                 </div>
               </div>
             </div>
