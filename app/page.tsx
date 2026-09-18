@@ -883,7 +883,7 @@ export default function Home() {
               <div className="project-cover">
                 <span className="project-tag">Portfolio</span>
                 <div className="project-actions">
-                  <a className="icon-btn" href="https://color-arc.vercel.app" target="_blank" rel="noopener noreferrer" title="Live"><ExternalIcon /></a>
+                  <a className="icon-btn" href="https://elyse-razafindravonjy.vercel.app" target="_blank" rel="noopener noreferrer" title="Live"><ExternalIcon /></a>
                 </div>
                 <div className="preview pv pv-portfolio">
                   <div className="row1"><div className="avatar"></div><div className="name"></div></div>
