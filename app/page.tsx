@@ -177,7 +177,7 @@ export default function Home() {
       cat: 'edu',
       current: true,
       period: '2025 — Présent',
-      badge: 'En cours',
+      // badge: 'En cours',
       title: 'Troisième Année de Licence en Génie Logiciel et Base de Données',
       org: "École Nationale d'Informatique (ENI) · Fianarantsoa",
       desc: "Troisième année de licence en cours. Approfondissement en génie logiciel, bases de données, développement web et mobile, et architectures applicatives.",
