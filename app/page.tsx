@@ -165,6 +165,15 @@ export default function Home() {
 
   const timelineItems = [
     {
+      cat: 'work',
+      period: 'Stage · 2026',
+      badge: 'En cours',
+      title: "Conception et Développement d'un Agent IA pour l'Analyse, la géneration de documentation et l'assistance aux projets GitLab dans l'application DO",
+      org: 'AKATA Goavana · Fianarantsoa',
+      desc: "Stage en fin de cycle Licence.",
+      stack: ['Python', 'React JS', 'PostgreSQL'],
+    },
+    {
       cat: 'edu',
       current: true,
       period: '2025 — Présent',
