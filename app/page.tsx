@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
-const PROJECTS_COUNT = 9;
+const PROJECTS_COUNT = 10;
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all');
@@ -630,7 +630,7 @@ export default function Home() {
             <div className="stack-group reveal" data-delay="1">
               <div className="stack-group-head">
                 <h4>Backend</h4>
-                <span>05</span>
+                <span>06</span>
               </div>
               <div className="stack-items">
                 <div className="stack-item">
@@ -672,6 +672,14 @@ export default function Home() {
                     </svg>
                   </div>
                   <div><span>Java</span><small>POO · Spring</small></div>
+                </div>
+                <div className="stack-item">
+                  <div className="logo">
+                    <svg viewBox="0 0 24 24" fill="#2A8BC4">
+                      <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.5 12c0-1.2.26-2.34.72-3.37l3.97 10.88A8.5 8.5 0 0 1 3.5 12zm8.5 8.5c-.84 0-1.65-.12-2.42-.35l2.57-7.47 2.63 7.2c.02.04.04.08.06.12-.91.31-1.88.5-2.84.5zm5.27-1.6l2.63-7.6c.49-1.23.66-2.21.66-3.09 0-.32-.02-.61-.06-.88A8.46 8.46 0 0 1 20.5 12c0 3.14-1.7 5.88-4.23 7.36z" />
+                    </svg>
+                  </div>
+                  <div><span>WordPress</span><small>CMS · Thèmes</small></div>
                 </div>
               </div>
             </div>
@@ -793,8 +801,8 @@ export default function Home() {
 
           <div className="marquee reveal">
             <div className="marquee-track">
-              {['TypeScript','React JS','Next.js','Tailwind CSS','Flutter','PHP','Python','PostgreSQL','MySQL','Docker','Figma',
-                'TypeScript','React JS','Next.js','Tailwind CSS','Flutter','PHP','Python','PostgreSQL','MySQL','Docker','Figma',
+              {['TypeScript','React JS','Next.js','Tailwind CSS','Flutter','PHP','WordPress','Python','PostgreSQL','MySQL','Docker','Figma',
+                'TypeScript','React JS','Next.js','Tailwind CSS','Flutter','PHP','WordPress','Python','PostgreSQL','MySQL','Docker','Figma',
               ].map((item, i) => (
                 <span key={i} className="marquee-item">{item}</span>
               ))}
@@ -1052,6 +1060,29 @@ export default function Home() {
                 <p className="project-desc">Outil de création de cartes heuristiques pour organiser les idées et les concepts</p>
                 <div className="project-techs">
                   {['Flutter','Dart','Go','PostgreSQL'].map(t => <span key={t} className="tech-pill">{t}</span>)}
+                </div>
+              </div>
+            </article>
+
+            {/* Food Maker */}
+            <article className="project reveal carousel-slide" data-delay="4">
+              <div className="project-cover">
+                <span className="project-tag">Perso · WordPress</span>
+                <div className="project-actions">
+                  <a className="icon-btn" href="https://food-maker.infinityfree.io/" target="_blank" rel="noopener noreferrer" title="Live"><ExternalIcon /></a>
+                </div>
+                <div className="preview pv pv-portfolio">
+                  <div className="row1"><div className="avatar"></div><div className="name"></div></div>
+                  <div className="heading"></div>
+                  <div className="grid"><div></div><div></div><div></div><div></div></div>
+                </div>
+                <ProjectImage src="/foodmaker.png" alt="Food Maker" />
+              </div>
+              <div className="project-body">
+                <div className="project-title">Food Maker</div>
+                <p className="project-desc">Site vitrine de restaurant réalisé avec WordPress : présentation des spécialités, témoignages et réservation de table.</p>
+                <div className="project-techs">
+                  {['WordPress','PHP','MySQL'].map(t => <span key={t} className="tech-pill">{t}</span>)}
                 </div>
               </div>
             </article>
